@@ -17,6 +17,7 @@ namespace Questronaut.Inventory
         private const int MAX_INVENTORY_SLOTS = 9;
 
         private InventoryItem _selectedItem;
+        public InventoryItem SelectedItem => _selectedItem;
 
         private List<InventoryItem> _inventoryData = new(MAX_INVENTORY_SLOTS);
         public List<InventoryItem> InventoryData => _inventoryData;

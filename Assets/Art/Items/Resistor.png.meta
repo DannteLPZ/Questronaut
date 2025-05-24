@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 20c51cba76972e848a54e9f491e1e99c
+guid: 26cfc72dcc0d1964d9e2c7e96c995372
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8680279741061056823
-    second: Empty sprite_0
+      213: -6946786272807237776
+    second: Resistor_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Empty sprite_0
+      name: Resistor_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 64
-        height: 64
+        x: 15
+        y: 3
+        width: 34
+        height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 739c6f43f6c867870800000000000000
-      internalID: 8680279741061056823
+      spriteID: 077c3c6c0be089f90800000000000000
+      internalID: -6946786272807237776
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Empty sprite_0: 8680279741061056823
+      Resistor_0: -6946786272807237776
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -8,6 +8,7 @@ namespace Questronaut.Inventory
     {
         [SerializeField] private Image _selectedItemIcon;
         [SerializeField] private Sprite _emptySprite;
+        [SerializeField] private TMP_Text _selectedItemName;
         [SerializeField] private TMP_Text _selectedItemDescription;
         private void Start()
         {
@@ -25,12 +26,14 @@ namespace Questronaut.Inventory
             if(PlayerInventoryModel.Instance.InventoryData[slot].Item == null)
             {
                 _selectedItemIcon.sprite = _emptySprite;
-                _selectedItemDescription.SetText("");
+                _selectedItemName.SetText(string.Empty);
+                _selectedItemDescription.SetText(string.Empty);
             }
             else
             {
-                _selectedItemIcon.sprite = PlayerInventoryModel.Instance.InventoryData[slot].Item.Icon;
-                _selectedItemDescription.SetText(PlayerInventoryModel.Instance.InventoryData[slot].Item.Description);
+                _selectedItemIcon.sprite = PlayerInventoryModel.Instance.SelectedItem.Item.Icon;
+                _selectedItemName.SetText(PlayerInventoryModel.Instance.SelectedItem.Item.Name);
+                _selectedItemDescription.SetText(PlayerInventoryModel.Instance.SelectedItem.Item.Description);
             }      
         }
     }

@@ -14,13 +14,4 @@ namespace Questronaut.Interaction
         }
 
     }
-
-    [Serializable]
-    public class ItemData
-    {
-        public string Name;
-        public string Description;
-        public int MaxStackSize;
-        public Sprite Icon;
-    }
 }
