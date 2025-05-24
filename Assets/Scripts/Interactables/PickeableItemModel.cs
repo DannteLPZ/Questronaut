@@ -1,3 +1,4 @@
+using Questronaut.Inventory;
 using System;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,11 +9,9 @@ namespace Questronaut.Interaction
     {
         [SerializeField] private ItemData _itemData;
         
-
         public void Interact()
         {
-            Debug.Log($"Picked Up Item: {_itemData.Name}");
-
+            PlayerInventoryModel.Instance.AddItem(_itemData);
         }
 
     }
@@ -22,6 +21,7 @@ namespace Questronaut.Interaction
     {
         public string Name;
         public string Description;
+        public int MaxStackSize;
         public Image Icon;
     }
 }

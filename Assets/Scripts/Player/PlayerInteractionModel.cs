@@ -26,7 +26,10 @@ namespace Questronaut.Player
             }
         }
 
-        public void Interact() => _currentInteractable?.Interact();
+        public void Interact()
+        {
+            _currentInteractable?.Interact();
+        }
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
