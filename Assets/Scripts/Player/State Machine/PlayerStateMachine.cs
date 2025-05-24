@@ -25,7 +25,7 @@ namespace Questronaut.Player
         private PlayerIdle _idleState;
         private PlayerWalk _walkState;
         private PlayerJump _jumpState;
-
+        private PlayerLock _lockState;
         protected override void SetupStates()
         {
             foreach (State state in _allStates)
@@ -34,12 +34,15 @@ namespace Questronaut.Player
             _idleState = (PlayerIdle)_allStates.FirstOrDefault(t => t is PlayerIdle);
             _walkState = (PlayerWalk)_allStates.FirstOrDefault(t => t is PlayerWalk);
             _jumpState = (PlayerJump)_allStates.FirstOrDefault(t => t is PlayerJump);
+            _lockState = (PlayerLock)_allStates.FirstOrDefault(t => t is PlayerLock);
 
             _currentState = _idleState;
         }
 
         private void Update()
         {
+            if(_currentState == _lockState) return;
+
             CheckInput();
 
             if (_currentState.IsComplete == true)
@@ -91,11 +94,15 @@ namespace Questronaut.Player
                         ChangeState(_jumpState);
                     break;
                 case PlayerJump:
+                default:
                         ChangeState(_idleState);
                     break;
             }
         }
 
-        
+        public void BlockPlayer() => ChangeState(_lockState);
+
+        public void UnblockPlayer() => ChangeState(_idleState);
+
     }
 }

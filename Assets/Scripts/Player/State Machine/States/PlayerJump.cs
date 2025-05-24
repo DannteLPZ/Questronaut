@@ -11,8 +11,6 @@ namespace Questronaut.Player
         {
             _characterAnimator.Play(_stateAnimation.name);
             _characterAnimator.speed = 0.0f;
-
-            _characterRb.linearVelocity = new Vector2(_characterRb.linearVelocityX, _jumpSpeed);
         }
 
         public override void UpdateState()
