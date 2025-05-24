@@ -1,7 +1,6 @@
 using Questronaut.Inventory;
 using System;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Questronaut.Interaction
 {
@@ -22,6 +21,6 @@ namespace Questronaut.Interaction
         public string Name;
         public string Description;
         public int MaxStackSize;
-        public Image Icon;
+        public Sprite Icon;
     }
 }

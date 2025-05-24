@@ -8,14 +8,14 @@ namespace Questronaut.Inventory
 {
     public class PlayerInventoryModel : MonoBehaviour
     {
-        public event Action OnItemAdded;
-        public event Action OnItemRemoved;
+        public event Action<int> OnItemSlotChanged;
 
 
         public static PlayerInventoryModel Instance;
 
         private const int MAX_INVENTORY_SLOTS = 9;
         private List<InventoryItem> _inventoryData = new(MAX_INVENTORY_SLOTS);
+        public List<InventoryItem> InventoryData => _inventoryData;
 
         private void Awake()
         {
@@ -54,6 +54,7 @@ namespace Questronaut.Inventory
                 {
                     inventoryItem.CurrentAmount += amount;
                 }
+                OnItemSlotChanged?.Invoke(_inventoryData.IndexOf(inventoryItem));
             }
             //If no slot exists check if one can be added
             else 
@@ -70,20 +71,4 @@ namespace Questronaut.Inventory
         }
     }
 
-    [Serializable]
-    public class InventoryItem
-    {
-        public ItemData Item;
-        public int CurrentAmount;
-
-        public InventoryItem(ItemData item, int amount = 0)
-        {
-            Item = item;
-            CurrentAmount = amount;
-        }
-
-        public bool IsFull => CurrentAmount >= Item.MaxStackSize;
-        public bool IsEmpty => string.IsNullOrEmpty(Item.Name);
-
-    }
 }
