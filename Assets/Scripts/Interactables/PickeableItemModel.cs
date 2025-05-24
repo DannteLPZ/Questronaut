@@ -4,20 +4,17 @@ using UnityEngine.UI;
 
 namespace Questronaut.Interaction
 {
-    public class PickeableItem : MonoBehaviour, IInteractable
+    public class PickeableItemModel : MonoBehaviour, IInteractable
     {
         [SerializeField] private ItemData _itemData;
-        [SerializeField] private GameObject _interactionIcon;
-
-
-        public void ShowInteraction() => _interactionIcon.SetActive(true);
-
-        public void HideInteraction() => _interactionIcon.SetActive(false);
+        
 
         public void Interact()
         {
             Debug.Log($"Picked Up Item: {_itemData.Name}");
+
         }
+
     }
 
     [Serializable]

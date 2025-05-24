@@ -795,6 +795,7 @@ GameObject:
   m_Component:
   - component: {fileID: 788351930}
   - component: {fileID: 788351929}
+  - component: {fileID: 788351932}
   - component: {fileID: 788351931}
   m_Layer: 0
   m_Name: Pickeable Item
@@ -819,7 +820,6 @@ MonoBehaviour:
     Name: Test Item
     Description: This is a test Item
     Icon: {fileID: 0}
-  _interactionIcon: {fileID: 1292377270}
 --- !u!4 &788351930
 Transform:
   m_ObjectHideFlags: 0
@@ -883,6 +883,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &788351932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788351928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03e70ad4f9bf5dc459fbb2f9a139ec5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactionIcon: {fileID: 1292377270}
 --- !u!1 &877698289
 GameObject:
   m_ObjectHideFlags: 0
@@ -1173,6 +1186,7 @@ GameObject:
   - component: {fileID: 1308811529}
   - component: {fileID: 1308811530}
   - component: {fileID: 1308811531}
+  - component: {fileID: 1308811532}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1272,6 +1286,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bcb799d4616562140a081b13cfe42e14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1308811532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1308811527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fa566f4aba60554cb9099e750f5fd3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1751401455
