@@ -1,5 +1,4 @@
 using Questronaut.Inventory;
-using System;
 using UnityEngine;
 
 namespace Questronaut.Interaction
@@ -11,6 +10,7 @@ namespace Questronaut.Interaction
         public void Interact()
         {
             PlayerInventoryModel.Instance.AddItem(_itemData);
+            Destroy(gameObject);
         }
 
     }
