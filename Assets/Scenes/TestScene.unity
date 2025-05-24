@@ -238,6 +238,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 274991100}
+  - component: {fileID: 274991101}
   m_Layer: 0
   m_Name: Player Idle
   m_TagString: Untagged
@@ -260,6 +261,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 877698290}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &274991101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 274991099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88a808eb648749c4bb08ac3c89e2a375, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _stateAnimation: {fileID: 7400000, guid: d351498b7ce2fe4478412b1ef5057743, type: 2}
 --- !u!1 &473116490
 GameObject:
   m_ObjectHideFlags: 0
@@ -269,6 +283,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 473116491}
+  - component: {fileID: 473116492}
   m_Layer: 0
   m_Name: Player Walk
   m_TagString: Untagged
@@ -291,6 +306,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 877698290}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &473116492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 473116490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a4a9265a4f991642b7cf19cdb8a2a92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _stateAnimation: {fileID: 7400000, guid: c7c10f861bcc59d4d84397ed956385a4, type: 2}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -521,6 +549,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 877698290}
+  - component: {fileID: 877698291}
   m_Layer: 0
   m_Name: Player State Machine
   m_TagString: Untagged
@@ -548,6 +577,20 @@ Transform:
   - {fileID: 2082795274}
   m_Father: {fileID: 1308811528}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &877698291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 877698289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af0083ce5565a804b97febca34699851, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _characterRb: {fileID: 0}
+  _characterAnimator: {fileID: 0}
 --- !u!1 &1203031058
 GameObject:
   m_ObjectHideFlags: 0
@@ -557,6 +600,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1203031059}
+  - component: {fileID: 1203031060}
   m_Layer: 0
   m_Name: Player Jump
   m_TagString: Untagged
@@ -579,6 +623,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 877698290}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1203031060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1203031058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e474d005f2656bd458c0b5439061dbb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _stateAnimation: {fileID: 7400000, guid: 5d38185705738514ebb127e782d21fa9, type: 2}
 --- !u!1 &1308811527
 GameObject:
   m_ObjectHideFlags: 0
@@ -621,6 +678,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1654507720}
+  - component: {fileID: 1654507721}
   m_Layer: 0
   m_Name: Player Hurt
   m_TagString: Untagged
@@ -643,6 +701,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 877698290}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1654507721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1654507719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b685f7e3aea75c4ab08892166dab1c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _stateAnimation: {fileID: 7400000, guid: 5d53cf377c5ac9d478ee06a790eb840c, type: 2}
 --- !u!1 &2082795273
 GameObject:
   m_ObjectHideFlags: 0
@@ -652,6 +723,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2082795274}
+  - component: {fileID: 2082795275}
   m_Layer: 0
   m_Name: Player Death
   m_TagString: Untagged
@@ -674,6 +746,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 877698290}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2082795275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2082795273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a80ac509a032b3459ee745aec080edb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _stateAnimation: {fileID: 7400000, guid: 26972457f30387c4c829484c11cc0437, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
