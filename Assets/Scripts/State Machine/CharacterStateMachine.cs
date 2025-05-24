@@ -4,30 +4,33 @@ using UnityEngine;
 
 namespace Questronaut.StateMachine
 {
-    public class CharacterStateMachine : MonoBehaviour
+    public abstract class CharacterStateMachine : MonoBehaviour
     {
         [Header("Components")]
-        [SerializeField] private Rigidbody2D _characterRb;
-        [SerializeField] private Animator _characterAnimator;
+        [SerializeField] protected Rigidbody2D _characterRb;
+        [SerializeField] protected Animator _characterAnimator;
 
-        private List<State> _allStates = new();
-        private State _currentState;
+        protected List<State> _allStates = new();
+        protected State _currentState;
 
-
-        private void Awake()
+        protected virtual void Awake()
         {
             _allStates = GetComponentsInChildren<State>().ToList();
-            foreach (State state in _allStates)
-                state.Setup(_characterRb, _characterAnimator);
+            SetupStates();
         }
 
-        public void ChangeState(State newState, bool force = false)
+        protected abstract void SetupStates();
+        protected abstract void SelectState();
+
+        public void ChangeState(State newState)
         {
-            if (newState != _currentState || force == true)
+            if (newState != _currentState || _currentState.IsComplete == true)
             {
-                _currentState.OnStateExit();
+                if(_currentState != null)
+                    _currentState.ExitState();
                 _currentState = newState;
-                _currentState.OnStateEnter();
+                _currentState.InitializeState();
+                _currentState.EnterState();
             }
         }
     }
