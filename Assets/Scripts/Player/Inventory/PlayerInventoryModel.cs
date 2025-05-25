@@ -67,9 +67,7 @@ namespace Questronaut.Inventory
             //If no slot exists check if one can be added
             else 
             {
-                Debug.Log($"No item slot found");
                 inventoryItem = _inventoryData.Where(t => t.IsEmpty == true).FirstOrDefault();
-                Debug.Log($"Found empty slot? {inventoryItem != null}");
                 if( inventoryItem != null)
                 {
                     inventoryItem.Item = item;

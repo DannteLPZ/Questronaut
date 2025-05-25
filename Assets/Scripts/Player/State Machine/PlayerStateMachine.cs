@@ -100,9 +100,18 @@ namespace Questronaut.Player
             }
         }
 
-        public void BlockPlayer() => ChangeState(_lockState);
+        public void BlockPlayer()
+        {
+            if (_currentState == _lockState)
+                return;
+            ChangeState(_lockState);
+        }
 
-        public void UnblockPlayer() => ChangeState(_idleState);
-
+        public void UnblockPlayer()
+        {
+            if (_currentState != _lockState)
+                return;
+            ChangeState(_idleState);
+        }
     }
 }

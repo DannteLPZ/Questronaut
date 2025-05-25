@@ -1,3 +1,4 @@
+using Questronaut.GameFlow;
 using UnityEngine;
 
 namespace Questronaut.Inventory
@@ -6,13 +7,15 @@ namespace Questronaut.Inventory
     {
         private InventoryViewModel _inventoryViewModel;
 
+        private bool CanInput => !GameFlowManager.Instance.IsPaused;
+
         private void Awake()
         {
             _inventoryViewModel = GetComponent<InventoryViewModel>();
         }
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Tab) == true)
+            if (Input.GetKeyDown(KeyCode.Tab) == true && CanInput == true)
                 _inventoryViewModel.ToggleInventory();
         }
     }

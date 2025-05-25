@@ -1,18 +1,18 @@
-using Questronaut.Interaction;
-using Questronaut.StateMachine;
-using System;
+using Questronaut.GameFlow;
 using UnityEngine;
 
 namespace Questronaut.Player
 {
     public class PlayerBlockerModel : MonoBehaviour
     {
-        public event Action<bool> OnPlayerBlocked;
-
         [SerializeField] private PlayerStateMachine _playerStateMachine;
-        [SerializeField] private PlayerInteractionController _playerInteractionController;
 
         public static PlayerBlockerModel Instance;
+
+        private bool _isBlocked;
+        public bool IsBlocked => _isBlocked;
+
+        private bool _isBlockedByPause;
 
         private void Awake()
         {
@@ -27,18 +27,40 @@ namespace Questronaut.Player
             }
         }
 
-        public void BlockPlayer()
+        private void Start()
         {
-            _playerInteractionController.enabled = false;
+            GameFlowManager.Instance.OnPausedToggled += CheckPause;
+        }
+
+        private void OnDestroy()
+        {
+            GameFlowManager.Instance.OnPausedToggled -= CheckPause;
+        }
+
+        public void BlockPlayer(bool blockByPause = false)
+        {
+            if (_isBlocked == true)
+                return;
             _playerStateMachine.BlockPlayer();
-            OnPlayerBlocked?.Invoke(true);
+            _isBlocked = true;
+            _isBlockedByPause = blockByPause;
         }
 
         public void UnblockPlayer()
         {
-            _playerInteractionController.enabled = true;
             _playerStateMachine.UnblockPlayer();
-            OnPlayerBlocked?.Invoke(false);
+            _isBlocked = false;
+        }
+
+        private void CheckPause()
+        {
+            if(GameFlowManager.Instance.IsPaused == true)
+                BlockPlayer(true);
+            else if(_isBlockedByPause == true)
+            {
+                UnblockPlayer();
+                _isBlockedByPause = false;
+            }
         }
     }
 }
