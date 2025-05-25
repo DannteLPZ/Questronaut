@@ -1,13 +1,10 @@
-using TMPro;
-using Unity.Cinemachine;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Questronaut.Environment
 {
-    public class ParallaxBackground : MonoBehaviour
+    public class SelfRepeatBackground : MonoBehaviour
     {
-        [SerializeField] private Vector2 _parallaxMultipliers;
-        [SerializeField] private float _smoothing = 1;
+        [SerializeField] private Vector2 _moveSpeed;
 
         private Transform _cameraTransform;
         private Vector3 _lastCameraPosition;
@@ -25,35 +22,33 @@ namespace Questronaut.Environment
             _spriteUnitSizeY = texture.height / sprite.pixelsPerUnit;
 
             transform.position = (Vector2)_cameraTransform.position;
-
-            CinemachineCore.CameraUpdatedEvent.AddListener(MoveBackground);
         }
 
-        private void OnDestroy()
-        {
-            CinemachineCore.CameraUpdatedEvent.RemoveListener(MoveBackground);
-        }
 
         //Update after cinemachine has finished executing
-        private void MoveBackground(CinemachineBrain cinemachineBrain)
+        private void Update()
+        {
+            transform.position += (Vector3)_moveSpeed * Time.deltaTime;
+        }
+
+        private void LateUpdate()
         {
             Vector3 moveDelta = _cameraTransform.position - _lastCameraPosition;
-            transform.position += new Vector3(moveDelta.x * _parallaxMultipliers.x, moveDelta.y * _parallaxMultipliers.y);
             _lastCameraPosition = _cameraTransform.position;
 
-            if(Mathf.Abs(_cameraTransform.position.x - transform.position.x) >= _spriteUnitSizeX)
+            if (Mathf.Abs(_cameraTransform.position.x - transform.position.x) >= _spriteUnitSizeX)
             {
                 float positionXOffset = (_cameraTransform.position.x - transform.position.x) % _spriteUnitSizeX;
                 Vector2 newPositionX = new Vector2(_cameraTransform.position.x + positionXOffset, transform.position.y);
-                
-                transform.position = Vector2.Lerp(transform.position, newPositionX, _smoothing * Time.deltaTime);
+
+                transform.position = newPositionX;
             }
 
             if (Mathf.Abs(_cameraTransform.position.y - transform.position.y) >= _spriteUnitSizeY)
             {
                 float positionYOffset = (_cameraTransform.position.y - transform.position.y) % _spriteUnitSizeY;
                 Vector2 newPositionY = new Vector2(transform.position.x, _cameraTransform.position.y + positionYOffset);
-                transform.position = Vector2.Lerp(transform.position, newPositionY, _smoothing * Time.deltaTime);
+                transform.position = newPositionY;
             }
         }
     }
