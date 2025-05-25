@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ea62095409021844f88bfea13640e051, type: 3}
-  m_Name: First NPC
+  m_Name: Second NPC
   m_EditorClassIdentifier: 
   Dialog: 01001000 01100101 01101100 01101100 01101111 !
-  Color: {r: 0.9622642, g: 0.7742511, b: 0.4493592, a: 1}
+  Color: {r: 0.4509804, g: 0.8300765, b: 0.9607843, a: 1}
   BorderSprite: {fileID: -7585092225017893548, guid: 8e89bc4e396c60b419e724c56c266223, type: 3}
   FillSprite: {fileID: -3881791746193809064, guid: 8e89bc4e396c60b419e724c56c266223, type: 3}
