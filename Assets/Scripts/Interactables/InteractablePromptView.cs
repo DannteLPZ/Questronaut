@@ -3,15 +3,15 @@ using UnityEngine;
 
 namespace Questronaut.Interaction
 {
-    public class PickeableItemView : MonoBehaviour
+    public class InteractablePromptView : MonoBehaviour
     {
         [SerializeField] private GameObject _interactionIcon;
-        private PickeableItemModel _itemModel;
+        private IInteractable _interactable;
         private PlayerInteractionModel InteractionModel => PlayerInteractionModel.Instance;
 
         private void Awake()
         {
-            _itemModel = GetComponent<PickeableItemModel>();
+            _interactable = GetComponent<IInteractable>();
         }
 
         private void Start()
@@ -28,13 +28,13 @@ namespace Questronaut.Interaction
 
         private void CheckView()
         {
-            if(InteractionModel.CurrentInteractable == (IInteractable)_itemModel)
+            if(InteractionModel.CurrentInteractable == _interactable)
                 _interactionIcon.SetActive(true);
         }
 
         private void HideView()
         {
-            if (InteractionModel.CurrentInteractable == (IInteractable)_itemModel)
+            if (InteractionModel.CurrentInteractable == _interactable)
                 _interactionIcon.SetActive(false);
         }
 
