@@ -20,7 +20,6 @@ namespace Questronaut.Dialog
             if (Instance == null)
             {
                 Instance = this;
-                DontDestroyOnLoad(gameObject);
             }
             else
             {
