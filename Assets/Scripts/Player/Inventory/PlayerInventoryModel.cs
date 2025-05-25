@@ -48,7 +48,8 @@ namespace Questronaut.Inventory
         public void SetInventory(List<InventoryItem> items)
         {
             foreach (InventoryItem item in items)
-                AddItem(item.Item, item.CurrentAmount);   
+                AddItem(item.Item, item.CurrentAmount);
+            _selectedItem = _inventoryData[0];
         }
 
         public void AddItem(ItemDataSO item, int amount = 1)
@@ -80,7 +81,7 @@ namespace Questronaut.Inventory
                 if( inventoryItem != null)
                 {
                     inventoryItem.Item = item;
-                    AddItem(item);
+                    AddItem(item, amount);
                 }
             }
         }

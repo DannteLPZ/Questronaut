@@ -59,7 +59,7 @@ public class SaveSystemModel : MonoBehaviour
 
         foreach (ItemSaveData entry in saveData.InventoryItems)
         {
-            var item = _itemDatabase.GetItem(entry.ID);
+            ItemDataSO item = _itemDatabase.GetItem(entry.ID);
             if (item != null)
             {
                 savedInventory.Add(new InventoryItem(item, entry.CurrentAmount));
@@ -69,8 +69,6 @@ public class SaveSystemModel : MonoBehaviour
                 Debug.LogWarning($"Item with id '{entry.ID}' not found in database.");
             }
         }
-
         PlayerInventoryModel.Instance.SetInventory(savedInventory);
-        Debug.Log("Inventory loaded.");
     }    
 }

@@ -17,6 +17,11 @@ namespace Questronaut.Inventory
 
         public bool IsFull => CurrentAmount >= Item.MaxStackSize;
         public bool IsEmpty => Item == null; //string.IsNullOrEmpty(Item.Name);
+
+        public override string ToString()
+        {
+            return $"ID: {Item.ID}, Amount: {CurrentAmount}";
+        }
     }
 
 }
