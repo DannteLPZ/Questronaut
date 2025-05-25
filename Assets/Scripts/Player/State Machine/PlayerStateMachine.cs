@@ -1,3 +1,4 @@
+using Questronaut.Audio;
 using Questronaut.StateMachine;
 using System.Linq;
 using UnityEngine;
@@ -62,7 +63,10 @@ namespace Questronaut.Player
 
 
             if (((IInput)this).KeyDown(KeyCode.Space) == true && _isGrounded == true)
+            {
                 _hasJumped = true;
+                AudioManager.Instance.PlaySound("SFX_Jump");
+            }
         }
 
         private void FixedUpdate()

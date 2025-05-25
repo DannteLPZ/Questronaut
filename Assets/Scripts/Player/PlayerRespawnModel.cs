@@ -1,3 +1,4 @@
+using Questronaut.Audio;
 using UnityEngine;
 
 public class PlayerRespawnModel : MonoBehaviour
@@ -15,6 +16,7 @@ public class PlayerRespawnModel : MonoBehaviour
         if (((1 << collision.gameObject.layer) & _deathLayer) != 0)
         {
             transform.position = _spawnPoint.position;
+            AudioManager.Instance.PlaySound("SFX_Death");
         }
     }
 }

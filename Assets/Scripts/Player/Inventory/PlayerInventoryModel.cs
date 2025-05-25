@@ -1,4 +1,5 @@
 using NUnit.Framework.Interfaces;
+using Questronaut.Audio;
 using Questronaut.Interaction;
 using System;
 using System.Collections.Generic;
@@ -31,7 +32,6 @@ namespace Questronaut.Inventory
             if (Instance == null)
             {
                 Instance = this;
-                DontDestroyOnLoad(gameObject);
             }
             else
             {
@@ -71,7 +71,7 @@ namespace Questronaut.Inventory
                 {
                     inventoryItem.CurrentAmount += amount;
                 }
-                
+                AudioManager.Instance.PlaySound("SFX_Pickup");
                 OnItemDataChanged?.Invoke(_inventoryData.IndexOf(inventoryItem));
             }
             //If no slot exists check if one can be added
@@ -104,6 +104,7 @@ namespace Questronaut.Inventory
                 EventSystem.current.SetSelectedGameObject(newSelecteObject);
                 SelectItem(newSelectedIndex);
             }
+            AudioManager.Instance.PlaySound("SFX_Discard");
             OnItemDataChanged?.Invoke(_inventoryData.IndexOf(inventoryItem));
         }
 

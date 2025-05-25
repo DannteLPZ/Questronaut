@@ -19,7 +19,6 @@ namespace Questronaut.Player
             if (Instance == null)
             {
                 Instance = this;
-                DontDestroyOnLoad(gameObject);
             }
             else
             {
