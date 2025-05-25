@@ -1,9 +1,11 @@
+using NUnit.Framework.Interfaces;
 using Questronaut.Interaction;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using static UnityEngine.EventSystems.EventTrigger;
 
 namespace Questronaut.Inventory
 {
@@ -40,10 +42,16 @@ namespace Questronaut.Inventory
                 _inventoryData.Add(new(null));
 
             _itemSlots = FindObjectsByType<InventoryItemViewModel>(FindObjectsSortMode.None).ToList();
-            //TO_DO: BIND DATA FROM SAVE FILE
         }
 
-        public void AddItem(ItemData item, int amount = 1)
+        //TO_DO: BIND DATA FROM SAVE FILE
+        public void SetInventory(List<InventoryItem> items)
+        {
+            foreach (InventoryItem item in items)
+                AddItem(item.Item, item.CurrentAmount);   
+        }
+
+        public void AddItem(ItemDataSO item, int amount = 1)
         {
             //Check for available slot
             InventoryItem inventoryItem = _inventoryData.Where(t => t.Item == item && t.IsFull == false).FirstOrDefault();
@@ -62,6 +70,7 @@ namespace Questronaut.Inventory
                 {
                     inventoryItem.CurrentAmount += amount;
                 }
+                
                 OnItemDataChanged?.Invoke(_inventoryData.IndexOf(inventoryItem));
             }
             //If no slot exists check if one can be added

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e71cff7c7f16be64c93fc1f2e108766c, type: 3}
   m_Name: Resistor
   m_EditorClassIdentifier: 
+  ID: Resistor
   Name: Resistor
   Description: There is a code to it...
   MaxStackSize: 2

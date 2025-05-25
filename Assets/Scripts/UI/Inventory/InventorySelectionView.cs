@@ -23,7 +23,9 @@ namespace Questronaut.Inventory
 
         private void UpdateSelection(int slot)
         {
-            if(PlayerInventoryModel.Instance.InventoryData[slot].Item == null)
+            if (PlayerInventoryModel.Instance.InventoryData[slot] == null)
+                return;
+            if (PlayerInventoryModel.Instance.InventoryData[slot].Item == null)
             {
                 _selectedItemIcon.sprite = _emptySprite;
                 _selectedItemName.SetText(string.Empty);

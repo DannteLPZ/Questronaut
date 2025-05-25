@@ -6,10 +6,10 @@ namespace Questronaut.Inventory
     [Serializable]
     public class InventoryItem
     {
-        public ItemData Item;
+        public ItemDataSO Item;
         public int CurrentAmount;
 
-        public InventoryItem(ItemData item, int currentAmount = 0)
+        public InventoryItem(ItemDataSO item, int currentAmount = 0)
         {
             Item = item;
             CurrentAmount = currentAmount;
